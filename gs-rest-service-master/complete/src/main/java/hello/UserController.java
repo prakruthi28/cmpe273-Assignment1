@@ -45,7 +45,7 @@ public class UserController {
     int webId = 0;
     int baId = 0;
   
-    @RequestMapping(value = "/v1/users", method = RequestMethod.POST)
+    @RequestMapping(value = "/users", method = RequestMethod.POST)
     public User CreateUser(@RequestBody User user) {
     	    	logger.info("Start create user.");
 		userId++;
