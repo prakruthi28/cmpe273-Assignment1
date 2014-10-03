@@ -11,8 +11,8 @@ public class User {
 	private  Integer id;
 	private  String email;
     private  String password;
-    private  String c_date;
-    private  String m_date;
+    private  String created_date;
+    private  String modified_date;
     private  Map<Integer, IDCard> cardData = new HashMap<Integer, IDCard>();
     private  Map<Integer, Weblogin> webData = new HashMap<Integer, Weblogin>();
     private  Map<Integer, BankAccount> bankData = new HashMap<Integer, BankAccount>();
@@ -24,8 +24,8 @@ public class User {
         this.id = id;
         this.email = email;
         this.password = password;
-        this.c_date = c_date;
-        this.m_date = m_date;
+        this.created_date = created_date;
+        this.modified_date = modified_date;
     }
 
     public Integer getId() {
@@ -38,10 +38,10 @@ public class User {
         return password;
     }
     public String getCDate() {
-        return c_date;
+        return created_date;
     }
     public String getMDate() {
-        return m_date;
+        return modified_date;
     }
     public void addCardData(IDCard id){
     	this.cardData.put(id.getId(), id);
