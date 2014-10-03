@@ -67,6 +67,6 @@ public class User {
     	return new StringBuffer(" id : ").append(this.id.toString())
                     .append(" email : ").append(this.email)
                     .append(" password : ").append(this.password).append(" created date : ")
-                    .append(this.created_date).append("modified date : ").append(this.m_date).toString();
+                    .append(this.created_date).append("modified date : ").append(this.modified_date).toString();
         }
 }
