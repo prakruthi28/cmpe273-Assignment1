@@ -45,7 +45,7 @@ public class UserController {
     int webId = 0;
     int baId = 0;
   
-    @RequestMapping(value = "/v1/users", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/v1/users", method = RequestMethod.POST)
     public User CreateUser(@RequestBody User user) {
     	    	logger.info("Start create user.");
 		userId++;
@@ -57,14 +57,14 @@ public class UserController {
 		userData.put(userId, new_user);
 		return new_user;
     }
-    @RequestMapping(value = "/v1/users/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/v1/users/{id}", method = RequestMethod.GET)
     public User ViewUser(@PathVariable("id") int userId) {
     	logger.info("Start view.");
     	
     	return userData.get(userId);
     }
     
-    @RequestMapping(value = "/v1/users/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/api/v1/users/{id}", method = RequestMethod.PUT)
     public User UpdateUser(@PathVariable("id") int userId, @RequestBody User user) {
     	logger.info("Start update.");
     	User oldUser = userData.get(userId);
@@ -78,7 +78,7 @@ public class UserController {
     	return newUser;
     }
 
-    @RequestMapping(value = "/v1/users/{id}/idcards", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/v1/users/{id}/idcards", method = RequestMethod.POST)
     public IDCard CreateID(@PathVariable("id") int userId, @RequestBody IDCard idcard) {
     	logger.info("Start create id card.");
 		cardId++;
@@ -87,18 +87,18 @@ public class UserController {
 		user.addCardData(new_id);
 		return new_id;
     }
-    @RequestMapping(value = "/v1/users/{id}/idcards", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/v1/users/{id}/idcards", method = RequestMethod.GET)
     public String ListID(@PathVariable("id") int userId) {
       	logger.info("Start get id card.");
     	 return userData.get(userId).getCardData().toString();
     }
-    @RequestMapping(value = "/v1/users/{id}/idcards/{cid}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/api/v1/users/{id}/idcards/{cid}", method = RequestMethod.DELETE)
     public IDCard deleteID(@PathVariable("id") int userId, @PathVariable("cid") int cardId) {
       	logger.info("Start delete id card.");
       	IDCard id =     userData.get(userId).getCardData().remove(cardId);
       	return id;
     }
-    @RequestMapping(value = "/v1/users/{id}/weblogins", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/v1/users/{id}/weblogins", method = RequestMethod.POST)
     public Weblogin CreateWeblogin(@PathVariable("id") int userId, @RequestBody Weblogin weblogin) {
     	logger.info("Start create web login.");
 		webId++;
@@ -107,19 +107,19 @@ public class UserController {
 		webuser.addWebData(new_weblogin);
 		return new_weblogin;
     }
-    @RequestMapping(value = "/v1/users/{id}/weblogins", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/v1/users/{id}/weblogins", method = RequestMethod.GET)
     public String ListWeblogin(@PathVariable("id") int userId) {
       	logger.info("Start get web login.");
     	 return userData.get(userId).getWebData().toString();
     }
-    @RequestMapping(value = "/v1/users/{id}/weblogins/{login_id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/api/v1/users/{id}/weblogins/{login_id}", method = RequestMethod.DELETE)
     public Weblogin deleteWeblogin(@PathVariable("id") int userId, @PathVariable("login_id") int loginID) {
       	logger.info("Start delete web login.");
       	Weblogin wid =     userData.get(userId).getWebData().remove(loginID);
       	return wid;
     }
     
-    @RequestMapping(value = "/v1/users/{id}/bankaccounts", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/v1/users/{id}/bankaccounts", method = RequestMethod.POST)
     public BankAccount CreateBankAccount(@PathVariable("id") int userId, @RequestBody BankAccount bankacc) {
     	logger.info("Start create Bank Account.");
 		baId++;
@@ -129,13 +129,13 @@ public class UserController {
 		return new_bankaccount;
     }
     
-    @RequestMapping(value = "/v1/users/{id}/bankaccounts", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/v1/users/{id}/bankaccounts", method = RequestMethod.GET)
     public String Listbankaccount(@PathVariable("id") int userId) {
       	logger.info("Start get bank account.");
     	 return userData.get(userId).getbankData().toString();
     }
     
-    @RequestMapping(value = "/v1/users/{id}/bankaccounts/{bankacc_id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/api/v1/users/{id}/bankaccounts/{bankacc_id}", method = RequestMethod.DELETE)
     public BankAccount deletebankaccount(@PathVariable("id") int userId, @PathVariable("bankacc_id") int bankacID) {
       	logger.info("Start delete web login.");
       	BankAccount bid =     userData.get(userId).getbankData().remove(bankacID);
