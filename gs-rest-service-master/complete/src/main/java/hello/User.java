@@ -20,7 +20,7 @@ public class User {
     public User() {
     }
 
-    public User(Integer id, String email, String password, String c_date, String m_date) {
+    public User(Integer id, String email, String password, String created_date, String modified_date) {
         this.id = id;
         this.email = email;
         this.password = password;
@@ -67,6 +67,6 @@ public class User {
     	return new StringBuffer(" id : ").append(this.id.toString())
                     .append(" email : ").append(this.email)
                     .append(" password : ").append(this.password).append(" created date : ")
-                    .append(this.c_date).append("modified date : ").append(this.m_date).toString();
+                    .append(this.created_date).append("modified date : ").append(this.m_date).toString();
         }
 }
